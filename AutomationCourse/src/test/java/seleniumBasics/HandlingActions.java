@@ -1,5 +1,9 @@
 package seleniumBasics;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -23,13 +27,26 @@ public class HandlingActions extends Base{
     	Actions action=new Actions(driver);
     	action.dragAndDrop(drag,drop).build().perform();
     }
+    public void verifyKeyboardaction() throws AWTException {
+    	Robot robot=new Robot();
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_T);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		robot.keyRelease(KeyEvent.VK_T);
+    }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		HandlingActions actions=new HandlingActions();
 		actions.initialiseBrowser();
 		//actions.verifyRightClick();
 		//actions.verifyMouseOver();
-		actions.verifyDraganddrop();
+		//actions.verifyDraganddrop();
+		try {
+			actions.verifyKeyboardaction();
+		} catch (AWTException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//actions.driverCloseandQuit();
 
 	}
