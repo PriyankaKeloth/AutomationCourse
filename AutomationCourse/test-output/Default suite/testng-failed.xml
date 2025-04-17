@@ -5,9 +5,9 @@
     <classes>
       <class name="testScript.LoginTest">
         <methods>
+          <include name="verifyUserLoginwithValidCredentials"/>
           <include name="driverCloseandQuit"/>
           <include name="initialiseBrowser"/>
-          <include name="verifyUserLOginwithInvalidUsername"/>
         </methods>
       </class> <!-- testScript.LoginTest -->
     </classes>
