@@ -1,8 +1,12 @@
 package seleniumBasics;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HandlingDropdown extends Base {
 	
@@ -18,6 +22,8 @@ public class HandlingDropdown extends Base {
 	public void verifyCheckbox() {
 		driver.navigate().to("https://www.webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html");
 		WebElement checkbox= driver.findElement(By.xpath("//label[text()='Option 2']"));
+		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+    	wait.until(ExpectedConditions.elementToBeSelected(checkbox));
 		checkbox.click();	
 	}
 	public void verifyRadiobutton() {

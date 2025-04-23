@@ -1,7 +1,11 @@
 package seleniumBasics;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WebelementCommands extends Base {
 	
@@ -10,6 +14,8 @@ public class WebelementCommands extends Base {
     	WebElement messagebox= driver.findElement(By.id("single-input-field"));
     	messagebox.sendKeys("Welcome");
     	WebElement showmessagebutton= driver.findElement(By.id("button-one"));
+    	WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+    	wait.until(ExpectedConditions.elementToBeClickable(showmessagebutton));
     	showmessagebutton.click();
     	WebElement yourmessage= driver.findElement(By.id("message-one"));
     	System.out.println(yourmessage.getText());
