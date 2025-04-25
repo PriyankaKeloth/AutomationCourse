@@ -13,12 +13,12 @@ public class LoginPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(id = "user-name")
-	private WebElement usernamefield;
-	@FindBy(id = "password")
-	private WebElement passwordfield;
-	@FindBy(id = "login-button")
-	private WebElement loginbutton;
+	@FindBy(id = "user-name")private WebElement usernamefield;
+	@FindBy(id = "password")private WebElement passwordfield;
+	@FindBy(id = "login-button")private WebElement loginbutton;
+	@FindBy(xpath = "//div[text()='Products']")private WebElement products;
+	@FindBy(xpath = "//div[@class='login_logo']")private WebElement pagelogo;
+	
 
 	public void enterUsernameOnUsernameField(String username) {
 		usernamefield.sendKeys(username);
@@ -30,5 +30,11 @@ public class LoginPage {
 
 	public void clickOnLoginbutton() {
 		loginbutton.click();
+	}
+	public boolean productDisplayed() {
+		return products.isDisplayed();
+	}
+	public String getPageLogo() {
+		return pagelogo.getText();
 	}
 }
